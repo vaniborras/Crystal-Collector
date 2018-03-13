@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>CRYSTAL COLLECTOR</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+
+<script type="text/javascript" src="assets/game.js"></script>
+
+</head>
+<header >
+
+<div class="jumbotron">
+  <h1>CRYSTAL COLLECTOR</h1>
+  
+  <p>
+      <div id="rules">RULES</div>
+        <div>You will be given a random number at the start of the game.</div>
+        <div>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</div>
+        <div>You win the game by matching your total score to a random number, you lose the game if your total score goes above the random number.</div>
+        <div>The value of each crystal is hidden from you until you click on it.</div>
+  </p>
+  
+</div>
+
+</header>
+
+<body>
+
+
+<p><input type="button" id="reset" class="btn btn-primary btn-lg" style="cursor:pointer; margin-left: 10px; font-size:18px;" value=Start></a></p>
+
+<p><span id="number"></span></p>
+
+<div id="numberToGuess"><h3></h3></div>
+
+<p><span id="yourNumber"></span></p>
+
+<div id="crystals">
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+  
+  
+  $( document ).ready(function() {
+    var numberToGuess = "";
+    var counter = 0;
+    var number1 = [10];
+    var number2 = [5];
+    var number3 = [3];
+    var number4 = [7];
+    
+//     $('reset').on('click', function){
+//         // Math.floor(Math.random() * 120) + 19;
+//         // return
+//         // function getRandomInt(max) {
+//   return Math.floor(Math.random() * 120) + 19;
+//     }
+
+    $('number1 number2 number3 number4').text(numberToGuess);
+    for (var i=0; i< number1.length; i++){
+      var imageCrystal1 = $('<img>');
+      
+      imageCrystal1.attr('data-num', number1[i]);
+      imageCrystal1.attr('src', 'assets/images/crystal-green.png');
+      imageCrystal1.attr('alt', 'green crystal');
+      imageCrystal1.addClass('crystalImage');
+      $('#crystals').append(imageCrystal1);
+    }
+    for (var i=0; i< number2.length; i++){
+      var imageCrystal2 = $('<img>');
+      
+      imageCrystal2.attr('data-num', number2[i]);
+      imageCrystal2.attr('src', 'assets/images/crystal-blue.png');
+      imageCrystal2.attr('alt', 'blue crystal');
+      imageCrystal2.addClass('crystalImage');
+      $('#crystals').append(imageCrystal2);
+    }
+    for (var i=0; i< number3.length; i++){
+      var imageCrystal3 = $('<img>');
+      
+      imageCrystal3.attr('data-num', number3[i]);
+      imageCrystal3.attr('src', 'assets/images/crystal-pink.png');
+      imageCrystal3.attr('alt', 'red crystal');
+      imageCrystal3.addClass('crystalImage');
+      $('#crystals').append(imageCrystal3);
+    }
+    for (var i=0; i< number4.length; i++){
+      var imageCrystal4 = $('<img>');
+      
+      imageCrystal4.attr('data-num', number4[i]);
+      imageCrystal4.attr('src', 'assets/images/crystal-teal.png');
+      imageCrystal4.attr('alt', 'purple crystal');
+      imageCrystal4.addClass('crystalImage');
+      $('#crystals').append(imageCrystal4);
+    }
+
+
+    $('#reset').on('click', function(){ 
+        reset();
+    });
+    function reset(){
+      console.log("made it");
+      counter = 0;      
+      $('#yourNumber').text(counter);
+      number1 = [5];
+      number2 = [3];
+      number3 = [7];
+      number4 = [10];
+      $('number1 number2 number3 number4').text(numberToGuess);
+      console.log('Is it working');
+    };
+
+    $('.crystalImage').on('click', function(){
+      counter = counter + parseInt($(this).data('num'));
+      
+      $(numberToGuess).Math.floor(Math.random() * 6) + 1;
+
+      $('#yourNumber').text(counter);
+      if (counter == numberToGuess){
+        alert('You won!');
+        reset();
+        console.log("try it");
+      }else if( counter > numberToGuess){
+        alert('You lost!');
+        reset();
+      }
+    });
+  
+  });
+</script>
+</body>
+  
+</html>
