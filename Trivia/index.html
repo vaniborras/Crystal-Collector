@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Trivia Game</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/style.css">
+
+  </head>
+  <body>
+        <h1> 2000s Trivia </h1>
+        
+        <button id="start" class="button">
+            <h3>Start</h3>
+        </button>
+        
+        <div id="timer">
+            <h2>30</h2>
+        </div>
+        
+        <div class="question">
+            <div id="question"></div>
+            <div id="answer1" class="answer"></div>
+            <div id="answer2" class="answer"></div>
+            <div id="answer3" class="answer"></div>
+            <div id="answer4" class="answer"></div>
+        </div>
+        
+        <br>
+        
+        <button id="reset" class="button">
+            <h3>Play Again</h3>
+        </button>
+        
+        
+        <div id="stats">
+            <div id="correct">correct</div>
+            <div id="wrong">incorrect</div>
+        </div>
+    
+    </div>
+    <script src="assets/game.js"></script>
+  </body>
+</html>
